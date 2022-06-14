@@ -49,7 +49,8 @@ function patientSearch(text) {
 }
 
 function slotSearch() {
-  patientSearch('SM');
+  var searchString = $('search-text').val();
+  patientSearch(searchString);
   clearUI();
   $('#loading-row').show();
 
