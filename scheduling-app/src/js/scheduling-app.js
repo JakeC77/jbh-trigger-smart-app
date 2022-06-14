@@ -9,7 +9,6 @@ $('#clear-slots').on('click', function(e) {
 });
 
 
-patientSearch('SM');
 
 function patientSearch(text) {
 
@@ -50,6 +49,7 @@ function patientSearch(text) {
 }
 
 function slotSearch() {
+  patientSearch('SM');
   clearUI();
   $('#loading-row').show();
 
