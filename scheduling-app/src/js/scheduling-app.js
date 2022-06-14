@@ -56,7 +56,7 @@ function encounterSearch(text) {
     smart.api.fetchAll({type: 'Encounter', 
     
     query: { date: {
-      $and : ['le2011-12-31','ge2010-01-01']
+      $and : ['le2011-12-31T00:00:00.000Z','ge2010-01-01T00:00:00.000Z']
     }}}).then(
 
       // Display Patient information if the call succeeded
@@ -81,7 +81,8 @@ function encounterSearch(text) {
       },
 
       // Display 'Failed to read Patients from FHIR server' if the call failed
-      function() {
+      function(error,stuff) {
+        console.log(error);
         clearPatientUI();
         $('#patient-errors').html('<p>Failed to read Patients from FHIR server</p>');
         $('#patient-errors-row').show();
